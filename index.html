@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Directorio Yavirac</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./libs/JQuery/jquery-ui.min.css">
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<script src="inteligencia.js"></script>
+<meta charset="utf8">
+</head>
+<body>
+    <div class="container-fluid">
+            <div style="width:100%; height: 30px; border-top: 1px solid black;"></div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="./images/logo.png" class="img-rounded" alt="YAVIRAC" width="150px" height="auto">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center text-primary">
+                    Directorio Telefónico Yavirac
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" class="form-control autocomplete" id="nombreCompleto" placeholder="Nombre Completo" onkeyup="getContactos()" onclick="vaciar()">
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <div id="datosContacto">
+            <div style="width:100%; height: 10px; border-top: 1px solid black;"></div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Identificación</label>
+                                <input type="text" class="form-control" id="identificacion" placeholder="Identificación" readonly>
+                            </div>
+                        </div>  
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Nombre Completo</label>
+                                <input type="text" class="form-control" id="nombreCompleto2" placeholder="Nombre Completo" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <input type="text" class="form-control" id="telefono" placeholder="Teléfono" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Fecha de Nacimiento</label>
+                                <input type="text" class="form-control" id="fechaNacimiento" placeholder="Fecha de Nacimiento" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Extensión</label>
+                                <input type="text" class="form-control" id="extension" placeholder="Extensión" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Correo Electrónico</label>
+                                <input type="text" class="form-control" id="email" placeholder="Correo Electrónico" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Dirección</label>
+                                <input type="text" class="form-control" id="direccion" placeholder="Dirección" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+        <div style="width:100%; height: 10px; border-top: 1px solid black;"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="btn-group" role="group">                    
+                    <button type="button" class="btn btn-secondary" onclick="getTodos()">
+                        <span class="fa fa-address-book"></span>&nbsp;Todos
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="descargarContactos()">
+                        <span class="fa fa-arrow-alt-circle-down"></span>&nbsp;Descargar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div style="width:100%; height: 10px;"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table" id="contactos">
+                    <thead>
+                        <tr>
+                            <th>Extensión</th>
+                            <th>Identificación</th>
+                            <th>Nombre Completo</th>
+                            <th>Correo Electrónico</th>
+                            <th>Teléfono</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Dirección</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenido">
+                    </tbody>    
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
