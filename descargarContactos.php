@@ -6,7 +6,6 @@ $busqueda = strtoupper($busqueda);
 $respuesta = $bddAdmin->ejecutarConsulta("SELECT * FROM Contacto;", array());
 header('Content-Type: text/csv; charset=utf-8');
 header('Content-Encoding: UTF-8');
-header('Content-type: text/csv; charset=UTF-8');
 header('Content-Disposition: attachment; filename=Directorio-Yavirac.csv');
 echo "\xEF\xBB\xBF";
 $salida= "Identificación; Primer Nombre; Segundo Nombre; Primer Apellido; Segundo Apellido; Teléfono; Fecha de Nacimiento; Extensión; Correo Electrónico; Dirección\n";
